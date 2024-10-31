@@ -90,5 +90,24 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+
+    @Test
+    @DisplayName("should display a decimal number when dot key is pressed")
+    void testPressDotKey() {
+        Calculator calc = new Calculator();
+
+        // Gibt die Ziffer "5" ein und drückt die Dezimal-Taste
+        calc.pressDigitKey(5);
+        calc.pressDotKey();
+        // Gibt die Ziffer "3" ein
+        calc.pressDigitKey(3);
+
+        // Erwartetes Ergebnis ist "5.3"
+        String expected = "5.3";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
